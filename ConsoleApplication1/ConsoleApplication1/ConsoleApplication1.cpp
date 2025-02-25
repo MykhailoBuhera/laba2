@@ -32,8 +32,27 @@ public:
     void display() const {
         cout << "imya " << name << " Age " << age << " ID " << studentID << endl;
     }
+    class Course {
+    private:
+        string courseName;
+        string courseCode;
+        int credut;
+
+    public:
+
+        Course(string name, string code, int cr) : courseName(name), courseCode(code), credut(cr) {}
+
+        ~Course() {
+            cout << "destructor dla course " << courseName << " vuklukano" << endl;
+        }
+
+        void display() const {
+            cout << "Course " << courseName << " code " << courseCode << " credit " << credut << endl;
+        }
+    };
 
 };
+
     int main(){
     
     
