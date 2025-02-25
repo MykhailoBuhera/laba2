@@ -32,26 +32,48 @@ public:
     void display() const {
         cout << "imya " << name << " Age " << age << " ID " << studentID << endl;
     }
-    class Course {
-    private:
-        string courseName;
-        string courseCode;
-        int credut;
-
-    public:
-
-        Course(string name, string code, int cr) : courseName(name), courseCode(code), credut(cr) {}
-
-        ~Course() {
-            cout << "destructor dla course " << courseName << " vuklukano" << endl;
-        }
-
-        void display() const {
-            cout << "Course " << courseName << " code " << courseCode << " credit " << credut << endl;
-        }
-    };
-
+   
 };
+class Course {
+private:
+    string courseName;
+    string courseCode;
+    int credut;
+
+public:
+
+    Course(string name, string code, int cr) : courseName(name), courseCode(code), credut(cr) {}
+
+    ~Course() {
+        cout << "destructor dla course " << courseName << " vuklukano" << endl;
+    }
+
+    void display() const {
+        cout << "Course " << courseName << " code " << courseCode << " credit " << credut << endl;
+    }
+};
+// class ochinka
+class Grade {
+private:
+    string studentID;
+    string courseCode;
+    int grade;
+
+public:
+    // counstrructor
+    Grade(string sID, string cCode, int g) : studentID(sID), courseCode(cCode), grade(g) {}
+
+    // destructor
+    ~Grade() {
+        cout << "destructor dla ochinok " << studentID << "za kursom " << courseCode << " vuklukano" << endl;
+    }
+
+    void display() const {
+        cout << "ID  " << studentID << "Cod course " << courseCode << "Grade " << grade << endl;
+    }
+};
+
+
 
     int main(){
     
