@@ -75,9 +75,19 @@ public:
 
 
 
-    int main(){
-    
-    
+    int main()
+    {
+        Student student1("ivan", 18, "ch250605");
+        student1.display();
+
+        Course course1("Software engennering", "CS143", 5);
+        course1.display();
+
+        Grade grade1("ch250605", "CS143", 95);
+        grade1.display();
+
+        return 0;
+
     }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
