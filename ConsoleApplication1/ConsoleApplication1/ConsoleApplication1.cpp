@@ -28,6 +28,11 @@ public:
     ~Student() {
         cout << "destructor dla name  " << name << " vuklukano" << endl;
     }
+
+    void display() const {
+        cout << "imya " << name << " Age " << age << " ID " << studentID << endl;
+    }
+
 };
     int main(){
     
