@@ -92,6 +92,14 @@ public:
     void display() const {
         cout << "ID  " << studentID << "Cod course " << courseCode << "Grade " << grade << endl;
     }
+    int operator ++ (int) {
+        grade++;
+        return grade;
+    }
+    // Binary operator+ (adds grades)
+    Grade operator+(const Grade& other) const {
+        return Grade(studentID, courseCode, grade + other.grade);
+    }
 };
 
 
@@ -103,10 +111,15 @@ public:
 
     
         Grade grade1("ch250605", "CS143 ", 95);
+        grade1++;
         grade1.display();
         Grade grade2{};
-        grade2 = grade1;
+
+        grade2 = grade1; // unar
         grade2.display();
+
+        Grade grade3 = grade1 + grade2; // binar
+        grade3.display();
 
         Course course1("Software Engineering", "CS143", 5);
         course1.display();
