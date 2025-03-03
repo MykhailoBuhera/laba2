@@ -100,6 +100,15 @@ public:
     Grade operator+(const Grade& other) const {
         return Grade(studentID, courseCode, grade + other.grade);
     }
+    friend ostream& operator <<(ostream& os, const Grade& grad) {//perevantagenya dryzhnih operatoriv
+        os << grad.grade;
+        return os;
+
+    }
+    friend istream& operator >>(istream& is, Grade& grad) {
+        is >> grad.grade;
+        return is;
+    }
 };
 
 
@@ -126,7 +135,8 @@ public:
 
         Course course2 = move(course1);
         course2.display(); cout << endl;
-
+        cin >> grade1;
+        cout << grade1 <<endl ;
         return 0;
 
     }
