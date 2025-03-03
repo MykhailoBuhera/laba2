@@ -96,7 +96,7 @@ public:
         grade++;
         return grade;
     }
-    // Binary operator+ (adds grades)
+    // Binary operator+ 
     Grade operator+(const Grade& other) const {
         return Grade(studentID, courseCode, grade + other.grade);
     }
@@ -107,25 +107,25 @@ public:
     int main()
     {
         Student student1("ivan", 18, "ch250605");
-        student1.display();
+        student1.display(); cout << endl;
 
     
         Grade grade1("ch250605", "CS143 ", 95);
-        grade1++;
-        grade1.display();
-        Grade grade2{};
-
-        grade2 = grade1; // unar
-        grade2.display();
+        grade1.display(); cout << endl;
+        Grade grade2 = grade1;
+        // unar
+        grade2++;
+        grade2.display(); cout << endl;
 
         Grade grade3 = grade1 + grade2; // binar
-        grade3.display();
+        grade3.display(); cout << endl;
+        grade1.display(); cout << endl;
 
         Course course1("Software Engineering", "CS143", 5);
-        course1.display();
+        course1.display(); cout << endl;
 
         Course course2 = move(course1);
-        course2.display();
+        course2.display(); cout << endl;
 
         return 0;
 
