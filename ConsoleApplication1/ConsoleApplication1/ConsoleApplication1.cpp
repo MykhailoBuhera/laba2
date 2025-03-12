@@ -1,134 +1,88 @@
 // ConsoleApplication1.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
-
-
-
 #include <iostream>
-#include <string>
+#include "Student.h"
+#include "Course.h"
+#include "Grade.h"
 using namespace std;
 
+int main() {
+    Student student1("ivan", 18, "ch250605");
+    student1.display();
 
-class Student {//clas dla imya vik ta id
-private:
-    string name;
-    int age;
-    string studentID;
+    Grade grade1("ch250605", "CS143", 95);
+    grade1.display();
 
-public:
+    Grade grade2 = grade1;
+    grade2++;
+    grade2.display();
 
-    //constructor
-    Student() : name("nevidomo"), age(0), studentID("000000") {}
+    Grade grade3 = grade1 + grade2;
+    grade3.display();
 
-    //parametru
-    Student(string n, int a, string id) : name(n), age(a), studentID(id) {}
+    Course course1("Software Engineering", "CS143", 5);
+    course1.display();
 
-    //delaguvanya
-    Student(string n, string id) : Student(n, 18, id) {}
+    Course course2 = move(course1);
+    course2.display();
+
+    cin >> grade1;
+    cout << grade1 << endl;
+
+    cout << "Number of Grade objects: " << Grade::getCount() << endl;
+
+    return 0;
+}
 
 
-    ~Student() {
-        cout << "destructor dla name  " << name << " vuklukano" << endl;
-    }
 
-    void display() const {
-        cout << "imya " << name << " Age " << age << " ID " << studentID << endl;
-    }
-   
-};
-class Course {
-private:
-    string courseName;
-    string courseCode;
-    int credut;
 
-public:
 
-    Course(string name, string code, int cr) : courseName(name), courseCode(code), credut(cr) {}
+/*
+#include <iostream>
+#include "Student.h"
+#include "Course.h"
+#include "Grade.h"
+using namespace std;
 
-    // Move constructor
-    Course(Course&& other) noexcept // bez vunyatkiv
-        : courseName(move(other.courseName)),
-        courseCode(move(other.courseCode)),
-        credut(other.credut) {
-        cout << "Move constructor dla course " << courseName << " vuklukano" << endl;
-    }
+int main() {
+    // obj Student
+    Student student1("ivan", 18, "ch250605");
+    student1.display();
+    cout << endl;
 
-    ~Course() {
-        cout << "destructor dla course " << courseName << " vuklukano" << endl;
-    }
+    // obj Grade
+    Grade grade1("ch250605", "CS143", 95);
+    grade1.display();
+    cout << endl;
 
-    void display() const {
-        cout << "Course " << courseName << " code " << courseCode << " credit " << credut << endl;
-    }
-};
-// class ochinka
+    Grade grade2 = grade1; // copy constructor
+    grade2++;
+    grade2.display();
+    cout << endl;
 
-    class Grade {
-        private:
-            string studentID;
-            string courseCode;
-            int grade;
+    Grade grade3 = grade1 + grade2; // binar +
+    grade3.display();
+    cout << endl;
+
+    // stvorenya Course
+    Course course1("Software Engineering", "CS143", 5);
+    course1.display();
+    cout << endl;
+
+    Course course2 = move(course1); // move const
+    course2.display();
+    cout << endl;
+
+    // num of obj Grade
+    cout << "Number of Grade objects: " << Grade::getCount() << endl;
+
+    return 0;
+}
+
+
         
-            // number of grade field
-            static int count;
-        
-        public:
-            // Constructor
-            Grade(string sID, string cCode, int g) : studentID(sID), courseCode(cCode), grade(g) {
-                ++count;
-            }
-        
-        
-            // Copy constructor
-            Grade(const Grade& other) {
-                this->studentID = other.studentID;
-                this->courseCode = other.courseCode;
-                this->grade = other.grade;
-                ++count;
-            }
-        
-            // Destructor
-            ~Grade() {
-                cout << "Destructor dla ochinok " << studentID << " za kursom " << courseCode << " vyklykano" << endl;
-                --count;
-            }
-        
-            // stotic func to get coun
-            static int getCount() {
-                return count;
-            }
-        
-            void display() const {
-                cout << "ID: " << studentID << " Cod course: " << courseCode << " Grade: " << grade << endl;
-            }
-        
-            // Unary operator++
-            Grade& operator++() {
-                ++grade;
-                return *this;
-            }
-        
-            // Binary operator+
-            Grade operator+(const Grade& other) const {
-                return Grade(studentID, courseCode, grade + other.grade);
-            }
-        
-            // Friend operators for input/output
-            friend ostream& operator<<(ostream& os, const Grade& grad) {
-                os << grad.grade;
-                return os;
-            }
-        
-            friend istream& operator>>(istream& is, Grade& grad) {
-                is >> grad.grade;
-                return is;
-            }
-        };
-        
-        // Initialization static count zmina
-        int Grade::count = 0;
-        
-        int main() {
+        /*int main() {
             Student student1("ivan", 18, "ch250605");
             student1.display(); cout << endl;
         
@@ -153,18 +107,5 @@ public:
             cin >> grade1;
             cout << grade1 << endl;
         
-            cout << "Number of objects " << Grade::getCount() << endl; //vuvedenya stitic num  :: This operator is essential for namespace management
+            cout << "Number of objects " << Grade::getCount() << endl; //vuvedenya stitic num  :: This operator is essential for namespace management*/
             //and accessing class members in an unambiguous way, especially in large-scale projects where name conflicts might arise
-        
-            return 0;
-        }
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
