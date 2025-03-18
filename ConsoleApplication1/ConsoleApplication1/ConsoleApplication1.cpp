@@ -7,12 +7,11 @@
 using namespace std;
 
 int main() {
-    Student student1("ivan", 18, "ch250605");
-    student1.display();
+   /* 
 
     Grade grade1("ch250605", "CS143", 95);
     grade1.display();
-
+    cout << grade1;
     Grade grade2 = grade1;
     grade2++;
     grade2.display();
@@ -27,9 +26,16 @@ int main() {
     course2.display();
 
     cin >> grade1;
-    cout << grade1 << endl;
+    cout << grade1 << endl;*/
 
-    cout << "Number of Grade objects: " << Grade::getCount() << endl;
+    Student student1("ivan", 18, "ch250605");
+    student1.display();
+
+    cout << "----------------------" << endl;
+
+    Professor p1("Petro", 45, "Mathematic");
+    p1.display();
+
 
     return 0;
 }

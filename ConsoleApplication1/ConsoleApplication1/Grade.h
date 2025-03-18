@@ -1,7 +1,6 @@
 // Grade class
 #ifndef GRADE_H
 #define GRADE_H
-
 #include <iostream>
 #include <string>
 using namespace std;
@@ -43,7 +42,7 @@ public:
     }
     // Unary operator++
     Grade& operator++() {
-        ++grade;
+        ++this->grade;
         return *this;
     }
 
@@ -56,5 +55,6 @@ public:
     friend ostream& operator<<(ostream& os, const Grade& grad);
     friend istream& operator>>(istream& is, Grade& grad);
 };
+
 
 #endif
