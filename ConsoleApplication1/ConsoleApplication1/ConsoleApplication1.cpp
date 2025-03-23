@@ -28,13 +28,14 @@ int main() {
     cin >> grade1;
     cout << grade1 << endl;*/
 
-    Student student1("ivan", 18, "ch250605");
-    student1.display();
+    Student student1("ivan", 18, 2, "ch250605", {"C++", "000", 25});
+    student1.displayStudent();
 
     cout << "----------------------" << endl;
 
-    Professor p1("Petro", 45, "Mathematic");
+    Professor p1("Petro", 45, "Mathematic",10);
     p1.display();
+    p1.dispexp();
 
 
     return 0;

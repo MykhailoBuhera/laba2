@@ -12,15 +12,18 @@ private:
     int credut;
 
 public:
+
+    Course() : courseName("None"), courseCode("0"), credut(0) {}
+
     Course(string name, string code, int cr) : courseName(name), courseCode(code), credut(cr) {}
 
     // Move constructor
-    Course(Course&& other) noexcept // bez vunyatkiv
-        : courseName(move(other.courseName)),
-        courseCode(move(other.courseCode)),
-        credut(other.credut) {
-        cout << "Move constructor dla course " << courseName << " vuklukano" << endl;
-    }
+    //Course(Course&& other) noexcept // bez vunyatkiv
+    //    : courseName(move(other.courseName)),
+    //    courseCode(move(other.courseCode)),
+    //    credut(other.credut) {
+    //    cout << "Move constructor dla course " << courseName << " vuklukano" << endl;
+    //}
 
     ~Course() {
         cout << "destructor dla course " << courseName << " vuklukano" << endl;
