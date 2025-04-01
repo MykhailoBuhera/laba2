@@ -17,6 +17,16 @@ public:
     Grade(string sID, string cCode, int g) : studentID(sID), courseCode(cCode), grade(g) {
         ++count;
     }
+
+
+    // Copy constructor
+    Grade(const Grade& other) {
+        this->studentID = other.studentID;
+        this->courseCode = other.courseCode;
+        this->grade = other.grade;
+        ++count;
+    }
+
     // Destructor
     ~Grade() {
         cout << "Destructor dla ochinok " << studentID << " za kursom " << courseCode << " vyklykano" << endl;
@@ -30,35 +40,21 @@ public:
     void display() const {
         cout << "ID: " << studentID << " Cod course: " << courseCode << " Grade: " << grade << endl;
     }
+    // Unary operator++
+    Grade& operator++() {
+        ++this->grade;
+        return *this;
+    }
 
+    // Binary operator+
+    Grade operator+(const Grade& other) const {
+        return Grade(studentID, courseCode, grade + other.grade);
+    }
+   
+    // Friend operators for input/output
+    friend ostream& operator<<(ostream& os, const Grade& grad);
+    friend istream& operator>>(istream& is, Grade& grad);
 };
 
 
 #endif
-
-
-
-
-/* Unary operator++
-Grade& operator++() {
-    ++this->grade;
-    return *this;
-}
-
-// Binary operator+
-Grade operator+(const Grade& other) const {
-    return Grade(studentID, courseCode, grade + other.grade);
-}
-
-// Friend operators for input/output
-friend ostream& operator<<(ostream& os, const Grade& grad);
-friend istream& operator>>(istream& is, Grade& grad);
-
- Copy constructor
-Grade(const Grade& other) {
-    this->studentID = other.studentID;
-    this->courseCode = other.courseCode;
-    this->grade = other.grade;
-    ++count;
-}*/
-
