@@ -17,7 +17,7 @@ public:
     Grade(string sID, string cCode, int g) : studentID(sID), courseCode(cCode), grade(g) {
         ++count;
     }
-
+     
 
     // Copy constructor
     Grade(const Grade& other) {
