@@ -19,7 +19,8 @@ public:
 
 
     Staff(string n, int a,int exp) : name(n), age(a),exp(exp) {}
-
+    //pure virtual
+    virtual void func() = 0;
     // Віртуальний деструктор
     virtual ~Staff() {
         cout << "Destructor Staff for " << name << " called" << endl;
@@ -31,6 +32,7 @@ public:
     virtual void display() const {
         cout << "Name " << name << " Age " << age << endl;
     }
+    
 };
 
 
@@ -57,6 +59,9 @@ public:
         cout << "Student ID " << studentID << " name " << name << " Age " << age << " info about ";
         course.display();
     }
+    void func() override {
+        cout << "hello world" << endl;
+    };
 };
 
 
@@ -71,6 +76,10 @@ public:
 
     ~Professor() {
         cout << "Destructor Professor for " << name << " called" << endl;
+    }
+
+    void func() override {
+        cout << "hello world" << endl;
     }
 
     // Перевизначений метод display()

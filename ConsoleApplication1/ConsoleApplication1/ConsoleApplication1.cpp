@@ -7,35 +7,42 @@
 using namespace std;
 
 int main() {
-   /* 
 
-    Grade grade1("ch250605", "CS143", 95);
-    grade1.display();
-    cout << grade1;
-    Grade grade2 = grade1;
-    grade2++;
-    grade2.display();
-
-    Grade grade3 = grade1 + grade2;
-    grade3.display();
-
-    Course course1("Software Engineering", "CS143", 5);
-    course1.display();
-
-    Course course2 = move(course1);
-    course2.display();
-
-    cin >> grade1;
-    cout << grade1 << endl;*/
-
+   
     Student student1("ivan", 18, 2, "ch250605", {"C++", "000", 25});
     student1.displayStudent();
 
     cout << "----------------------" << endl;
 
+    Staff* ptr;
     Professor p1("Petro", 45, "Mathematic",10);
-    p1.display();
+    ptr = &p1;
+    ptr -> display();
     p1.dispexp();
+    p1.func();
+
+
+
+    /*
+
+ Grade grade1("ch250605", "CS143", 95);
+ grade1.display();
+ cout << grade1;
+ Grade grade2 = grade1;
+ grade2++;
+ grade2.display();
+
+ Grade grade3 = grade1 + grade2;
+ grade3.display();
+
+ Course course1("Software Engineering", "CS143", 5);
+ course1.display();
+
+ Course course2 = move(course1);
+ course2.display();
+
+ cin >> grade1;
+ cout << grade1 << endl;*/
 
 
     return 0;
