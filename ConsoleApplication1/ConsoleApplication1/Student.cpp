@@ -7,7 +7,7 @@ Student::Student(string n, int a, string id) : name(n), age(a), studentID(id) {}
 Student::Student(string n, string id) : Student(n, 18, id) {}
 
 Student::~Student() {
-    cout << "destructor dla name  " << name << " vuklukano" << endl;
+    cout << "destructor for name  " << name << " vuklukano" << endl;
 }
 
 void Student::display() const {

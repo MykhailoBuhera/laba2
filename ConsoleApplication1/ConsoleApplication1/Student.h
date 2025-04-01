@@ -24,7 +24,7 @@ public:
     virtual ~Staff() {
         cout << "Destructor Staff for " << name << " called" << endl;
     }
-    void dispexp() {
+    void dispexp () {
         cout << "Number of age " << exp << endl;
     }
     // Віртуальний метод для відображення інформації
@@ -52,7 +52,7 @@ public:
     }
 
     
-    void displayStudent() {
+    virtual void displayStudent () final {
         //Staff::display();
         cout << "Student ID " << studentID << " name " << name << " Age " << age << " info about ";
         course.display();
